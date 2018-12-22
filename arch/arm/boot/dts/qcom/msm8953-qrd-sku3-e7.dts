@@ -14,14 +14,14 @@
 
 /dts-v1/;
 
-#include "msm8953.dtsi"
-#include "msm-pmi8950.dtsi"
+#include "msm8953-e7.dtsi"
+#include "msm-pmi8950-e7.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. MSM8953 + PMI8950 QRD SKU3";
+	model = "Qualcomm Technologies, Inc. E7 QRD SKU3";
 	compatible = "qcom,msm8953-qrd-sku3",
 		   "qcom,msm8953-qrd", "qcom,msm8953", "qcom,qrd";
-	qcom,board-id= <0x1000b 0>;
+	qcom,board-id= <0x1000b 0x08>;
 };
 
 &soc {
@@ -35,7 +35,7 @@
 	};
 };
 
-#include "msm8953-qrd-sku3.dtsi"
+#include "msm8953-qrd-sku3-e7.dtsi"
 
 &usb3 {
 	vbus_dwc3-supply = <&smbcharger_charger_otg>;
@@ -44,6 +44,12 @@
 &mdss_dsi1 {
 	lab-supply = <&lab_regulator>;
 	ibb-supply = <&ibb_regulator>;
+};
+
+&wled {
+	qcom,fs-curr-ua = <20000>;
+	qcom,led-strings-list = [00 01];
+	qcom,ovp-mv = <29500>;
 };
 
 &dsi_panel_pwr_supply {

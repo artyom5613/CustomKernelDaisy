@@ -12,7 +12,7 @@
  * GNU General Public License for more details.
  */
 
-#include "msm8953-qrd.dtsi"
+#include "msm8953-qrd-e7.dtsi"
 
 &spmi_bus {
 	qcom,pmi8950@3 {
@@ -73,7 +73,7 @@
 	/delete-property/ vdd-supply;
 
 	//qcom,dsi-pref-prim-pan = <&dsi_r69006_1080p_cmd>;
-        qcom,dsi-pref-prim-pan = <&dsi_otm1911_fhd_vid>;
+	qcom,dsi-pref-prim-pan = <&dsi_td4310_fhdplus_e7_vid>;
 	pinctrl-names = "mdss_default", "mdss_sleep";
 	pinctrl-0 = <&mdss_dsi_active &mdss_te_active>;
 	pinctrl-1 = <&mdss_dsi_suspend &mdss_te_suspend>;
@@ -90,7 +90,6 @@
 	qpnp,qpnp-labibb-mode = "lcd";
 };
 
-
 &dsi_otm1911_fhd_vid {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	//qcom,esd-check-enabled;
@@ -103,15 +102,33 @@
 
 };
 
+/*add begin for E7 display*/
+&dsi_td4310_fhdplus_e7_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+
+&dsi_td4310_fhdplus_e7_g55_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+
+
+&dsi_td4310_ebbg_fhdplus_e7_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+
+&dsi_nt36672_tianma_fhdplus_e7_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+
+&dsi_nt36672_csot_fhdplus_e7_vid {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+/*add end for E7 display*/
+
 &dsi_otm1911_fhdplus_vid {
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 	//qcom,esd-check-enabled;
 
-};
-
-&dsi_hx8399c_fhdplus_vid {
-	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
-	//qcom,esd-check-enabled;
 };
 
 &dsi_r69006_1080p_cmd {

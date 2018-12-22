@@ -14,14 +14,14 @@
 
 /dts-v1/;
 
-#include "msm8953.dtsi"
+#include "msm8953-daisy.dtsi"
 #include "msm-pmi8950.dtsi"
 
 / {
-	model = "Qualcomm Technologies, Inc. MSM8953 + PMI8950 QRD SKU3";
+	model = "Qualcomm Technologies, Inc. MSM8953 + PMI8950 daisy QRD SKU3";
 	compatible = "qcom,msm8953-qrd-sku3",
 		   "qcom,msm8953-qrd", "qcom,msm8953", "qcom,qrd";
-	qcom,board-id= <0x1000b 0>;
+	qcom,board-id= <0x1000b 0x09>;
 };
 
 &soc {

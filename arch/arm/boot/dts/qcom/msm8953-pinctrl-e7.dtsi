@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
  * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -427,21 +427,6 @@
 					bias-pull-down; /* pull down */
 				};
 			};
-
-			mdss_dsi_gpio: mdss_dsi_gpio {
-				mux {
-					pins = "gpio141";
-					function = "gpio";
-				};
-
-				config {
-					pins = "gpio141";
-					drive-strength = <8>;
-					bias-pull-down;
-					output-low;
-				};
-			};
-
 		};
 
 		pmx_mdss_te {
@@ -845,6 +830,19 @@
 				pins = "gpio48";
 				drive-strength = <2>;
 				bias-disable;
+				input-enable;
+			};
+		};
+
+		smartpa_irq_active: smartpa_irq_active {
+			mux {
+				pins = "gpio87";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio87";
+				drive-strength = <2>;
+				bias-pull-down;
 				input-enable;
 			};
 		};
@@ -1431,6 +1429,18 @@
 					bias-pull-down;
 				};
 			};
+			synaptic_int_suspend: synaptic_int_suspend {
+				mux {
+					pins = "gpio65";
+					function = "gpio";
+				};
+
+				config {
+					pins = "gpio65";
+					drive-strength = <2>;
+					bias-pull-up;
+				};
+			};
 		};
 
 		/* add pingrp for goodix gt917d touchscreen */
@@ -1508,6 +1518,18 @@
 					pins = "gpio64";
 					drive-strength = <2>;
 					bias-pull-down;
+				};
+			};
+			synaptic_reset_suspend: synaptic_reset_suspend {
+				mux {
+					pins = "gpio64";
+					function = "gpio";
+				};
+
+				config {
+					pins = "gpio64";
+					drive-strength = <2>;
+					bias-pull-up;
 				};
 			};
 		};

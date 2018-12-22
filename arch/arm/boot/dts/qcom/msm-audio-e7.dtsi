@@ -541,17 +541,16 @@
 
 	i2c@78b6000 {
 		status = "okay";
-		spkamp@3a {/* max98927 smartpa device*/
-			compatible = "maxim,max98927L";
-			status = "okay";
-			reg = <0x3a>;
-			mono_stereo_mode = <0>;
-			interleave_mode = <0>;
-			vmon-l-slot = <1>;
-			imon-l-slot = <1>;
-			vmon-r-slot = <1>;
-			imon-r-slot = <1>;
-			maxim,98927-reset-gpio = <&tlmm 89 0>;
+		tas2557@4c {
+                        compatible = "ti,tas2557";
+                        reg = <0x4c>;
+                        ti,cdc-reset-gpio = <&tlmm 86 0>;
+                        ti,irq-gpio = <&tlmm 87 0x0>;
+                        ti,i2s-bits = <16>;   /* support 16, 24, 32 */
+                        ti,bypass-tmax = <0>;   /* 0, not bypass; 1, bypass */
+                        status = "ok";
+			pinctrl-names = "smartpa_irq_active";
+			pinctrl-0 = <&smartpa_irq_active>;
 		};
 		wsa881x_i2c_e: wsa881x-i2c-codec@e {
 			status = "disabled";

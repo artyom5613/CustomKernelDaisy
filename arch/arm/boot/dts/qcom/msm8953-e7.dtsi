@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
  * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,12 +34,21 @@
 				compatible = "android,fstab";
 				vendor {
 					compatible = "android,vendor";
-					dev = "/dev/block/platform/soc/7824900.sdhci/by-name/vendor";
+					dev = "/dev/block/platform/soc/7824900.sdhci/by-name/cust";
 					type = "ext4";
 					mnt_flags = "ro,barrier=1,discard";
 					fsmgr_flags = "wait,verify";
 					status = "ok";
 				};
+				system {
+					compatible = "android,system";
+					dev = "/dev/block/platform/soc/7824900.sdhci/by-name/system";
+					type = "ext4";
+					mnt_flags = "ro,barrier=1,discard";
+					fsmgr_flags = "wait,verify";
+					status = "ok";
+				};
+
 			};
 		};
 	};
@@ -85,7 +94,7 @@
 			compatible = "shared-dma-pool";
 			reusable;
 			alignment = <0 0x400000>;
-			size = <0 0x0b400000>;
+			size = <0 0x09800000>;
 		};
 
 		qseecom_mem: qseecom_region@0 {
@@ -151,7 +160,7 @@
 
 };
 
-#include "msm8953-pinctrl.dtsi"
+#include "msm8953-pinctrl-e7.dtsi"
 #include "msm8953-cpu.dtsi"
 #include "msm8953-gpu.dtsi"
 #include "msm8953-ion.dtsi"
@@ -1246,9 +1255,9 @@
 			reg = <0x10 8>;
 		};
 
-		dload_type@1c {
+		dload_type@18 {
 			compatible = "qcom,msm-imem-dload-type";
-			reg = <0x1c 4>;
+			reg = <0x18 4>;
 		};
 
 		restart_reason@65c {
@@ -1801,10 +1810,8 @@
 
 	sdhc_1: sdhci@7824900 {
 		compatible = "qcom,sdhci-msm";
-		reg = <0x7824900 0x500>, <0x7824000 0x800>, <0x7824e00 0x200>,
-				<0x0119d000 0x4>;
-		reg-names = "hc_mem", "core_mem", "cmdq_mem",
-				"tlmm_mem";
+		reg = <0x7824900 0x500>, <0x7824000 0x800>, <0x7824e00 0x200>;
+		reg-names = "hc_mem", "core_mem", "cmdq_mem";
 
 		interrupts = <0 123 0>, <0 138 0>;
 		interrupt-names = "hc_irq", "pwr_irq";
@@ -2234,9 +2241,9 @@
 		qcom,vdd-voltage-level = <0 925000 925000>;
 
 		qcom,qusb-phy-init-seq = <0xF8 0x80
-					0x93 0x84
-					0x83 0x88
-					0xC7 0x8C
+					0x53 0x84
+					0x93 0x88
+					0xCf 0x8C
 					0x14 0x9C
 					0x30 0x08
 					0x79 0x0C
@@ -2383,10 +2390,10 @@
 };
 
 #include "msm-pm8953-rpm-regulator.dtsi"
-#include "msm-pm8953.dtsi"
+#include "msm-pm8953-e7.dtsi"
 #include "msm8953-regulator.dtsi"
-#include "msm-audio.dtsi"
-#include "msm8953-audio.dtsi"
+#include "msm-audio-e7.dtsi"
+#include "msm8953-audio-e7.dtsi"
 #include "msm-gdsc-8916.dtsi"
 #include "msm8953-camera.dtsi"
 #include "msm8953-mdss.dtsi"

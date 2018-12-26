@@ -9,10 +9,16 @@
 #
 # Normal rules
 #
+/AnyKernel2
 .*
 *.o
 *.o.*
 *.s
+/out
+/build-daisy.sh
+/drivers/input/sensors/smi130/modules.order
+/drivers/video/msm/mdss/libmdss_get_rc.a
+/stock
 *.ko
 *.so
 *.so.dbg

@@ -1,30 +1,3 @@
-/* Some of the source code in this file came from "linux/fs/fat/misc.c".  */
-/*
- *  linux/fs/fat/misc.c
- *
- *  Written 1992,1993 by Werner Almesberger
- *  22/11/2000 - Fixed fat_date_unix2dos for dates earlier than 01/01/1980
- *         and date_dos2unix for date==0 by Igor Zhbanov(bsg@uniyar.ac.ru)
- */
-
-/*
- *  Copyright (C) 2012-2013 Samsung Electronics Co., Ltd.
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
-
 #include <linux/semaphore.h>
 #include <linux/time.h>
 
@@ -145,4 +118,3 @@ TIMESTAMP_T *tm_current(TIMESTAMP_T *tp, UINT8 tz_utc)
 
 	return(tp);
 }
-

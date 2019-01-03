@@ -29,8 +29,6 @@ extern "C" {
 #define LOCKBIT                 0x01
 #define DIRTYBIT                0x02
 
-#define DCACHE_MAX_RA_SIZE	(128*1024)
-
 	typedef struct __BUF_CACHE_T {
 		struct __BUF_CACHE_T *next;
 		struct __BUF_CACHE_T *prev;
@@ -57,7 +55,6 @@ extern "C" {
 	void   buf_release(struct super_block *sb, UINT32 sec);
 	void   buf_release_all(struct super_block *sb);
 	void   buf_sync(struct super_block *sb);
-	INT32 buf_cache_readahead(struct super_block * sb, UINT32 sec);
 
 #ifdef __cplusplus
 }
